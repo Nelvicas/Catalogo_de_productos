@@ -9,6 +9,10 @@
 
     <h1>Catálogo de Productos</h1>
     <p>"Esta es mi primera vista en CodeIgniter."</p>
+
+   <?php foreach ($productos as $nombre => $precio): ?>
+        <p><?= $nombre ?> - <?= $precio ?></p>
+   <?php endforeach; ?>
     
 </body>
 </html>
