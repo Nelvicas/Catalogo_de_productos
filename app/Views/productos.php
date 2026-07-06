@@ -12,14 +12,14 @@
 
     <p>Total Productos: <?= $totalProductos ?></p>
 
-   <?php foreach ($productos as $producto): ?>
+   <?php foreach ($productos as $producto): ?> <!-- traer datos de multiarreglo a la vista  -->
         <p>id: <?= $producto["id"]; ?> </p>
         <p>Nombre: <?= $producto["nombre"]; ?> </p>
         <p>Precio: <?= $producto["precio"]; ?></p>
         <p>Marca: <?= $producto["marca"]; ?> </p>
         <p>Stock: <?= $producto["stock"]; ?> </p>
 
-        <?php if ($producto["stock"] > 0): ?>
+        <?php if ($producto["stock"] > 0): ?>    <!-- uso de if para ver si esta disponible o agotado  -->
             <p>Disponible</p>
         <?php else: ?>
             <p>Agotado</p>
