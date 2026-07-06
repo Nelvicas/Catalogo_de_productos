@@ -58,7 +58,7 @@ class ProductoModel
 {
     public function getProductos()
     {
-       return  [
+       return  [ // uso de multiarreglos 
      [  
         "id" => 1,
         "nombre" => "Laptop Lenovo",
