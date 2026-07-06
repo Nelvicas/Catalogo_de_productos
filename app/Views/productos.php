@@ -11,6 +11,8 @@
     <p>"Esta es mi primera vista en CodeIgniter."</p>
 
     <p>Total Productos: <?= $totalProductos ?></p>
+    <p>Productos Disponibles: <?= $productosDisponibles ?></p>
+    <p>Productos Agotados: <?= $productosAgotados ?></p>
 
    <?php foreach ($productos as $producto): ?> <!-- traer datos de multiarreglo a la vista  -->
         <p>id: <?= $producto["id"]; ?> </p>
@@ -19,11 +21,12 @@
         <p>Marca: <?= $producto["marca"]; ?> </p>
         <p>Stock: <?= $producto["stock"]; ?> </p>
 
-        <?php if ($producto["stock"] > 0): ?>    <!-- uso de if para ver si esta disponible o agotado  -->
+        <?php if ($producto["stock"] > 0): ?>    <!-- uso de if para ver si esta disponible o agotado solo en vista -->
             <p>Disponible</p>
         <?php else: ?>
             <p>Agotado</p>
         <?php endif; ?>
+
    <?php endforeach; ?>
 
    
