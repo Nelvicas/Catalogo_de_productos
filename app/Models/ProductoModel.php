@@ -88,7 +88,7 @@ class ProductoModel
         "nombre" => "Teclado",
         "precio" => 300,
         "marca" => "Logitech",
-        "stock" => 0
+        "stock" => 5
     ]
 
 

@@ -30,5 +30,8 @@
    <?php endforeach; ?>
 
    
+    <p>Valor total del inventario: <?= $totalInvertido ?></p>
+
+   
 </body>
 </html>
