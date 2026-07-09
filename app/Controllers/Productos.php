@@ -19,6 +19,7 @@ class Productos extends BaseController
         $model = new ProductoModel();          // creas tu instancia 
         $productos = $model->getProductos();  // pides datos con get y los almacenas en productos
         //$cantidad = count($productos);       // creando variable para almacenar la cantidad
+        $masCaro = $productos[0];
         foreach ($productos as $producto){
             $totalProductos++;
             $totalInvertido += ($producto['stock'] * $producto['precio']);
@@ -28,12 +29,18 @@ class Productos extends BaseController
             }elseif($producto['stock'] == 0){
                 $productosAgotados++;
             }
+
+            // mas caro 
+            if($producto['precio'] > $masCaro['precio']){
+                 $masCaro = $producto;
+            }
         } 
 
         
 
         return view('productos', ['productos' => $productos, 'totalProductos' => $totalProductos, 
-        'productosDisponibles' => $productosDisponibles, 'productosAgotados' => $productosAgotados, 'totalInvertido' => $totalInvertido]);
+        'productosDisponibles' => $productosDisponibles, 'productosAgotados' => $productosAgotados, 
+        'totalInvertido' => $totalInvertido, 'masCaro' => $masCaro]);
 
 
     }
