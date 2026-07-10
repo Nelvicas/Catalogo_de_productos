@@ -11,10 +11,7 @@ class Productos extends BaseController
     public function index()
     {
         //return view('productos');
-        $totalProductos = 0;
-        $productosDisponibles = 0;
-        $productosAgotados = 0;
-        $totalInvertido = 0;
+       
 
         $model = new ProductoModel();          // creas tu instancia 
         $productos = $model->getProductos();  // pides datos con get y los almacenas en productos
@@ -42,6 +39,15 @@ class Productos extends BaseController
 
 
     }
+
+    public function calcularEstadisticas($productos){
+        $totalProductos = 0;
+        $productosDisponibles = 0;
+        $productosAgotados = 0;
+        $totalInvertido = 0;
+    }
+
+
 
  
 }
