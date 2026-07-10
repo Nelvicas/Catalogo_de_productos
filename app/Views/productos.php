@@ -10,9 +10,9 @@
     <h1>Catálogo de Productos</h1>
     <p>"Esta es mi primera vista en CodeIgniter."</p>
 
-    <p>Total Productos: <?= $totalProductos ?></p>
-    <p>Productos Disponibles: <?= $productosDisponibles ?></p>
-    <p>Productos Agotados: <?= $productosAgotados ?></p>
+    <p>Total Productos: <?= $estadisticas['totalProductos'] ?></p>
+    <p>Productos Disponibles: <?= $estadisticas['productosDisponibles'] ?></p>
+    <p>Productos Agotados: <?= $estadisticas['productosAgotados'] ?></p>
 
    <?php foreach ($productos as $producto): ?> <!-- traer datos de multiarreglo a la vista  -->
         <p>id: <?= $producto["id"]; ?> </p>
@@ -30,12 +30,12 @@
    <?php endforeach; ?>
 
    
-    <p>Valor total del inventario: <?= $totalInvertido ?></p>
+    <p>Valor total del inventario: <?= $estadisticas['totalInvertido'] ?></p>
 
     
     <p>Producto mas caro: </p> <!-- visualizar producto mas caro  -->
-    <p>Nombre: <?= $masCaro['nombre'] ?></p>
-    <p>Precio: <?= $masCaro['precio'] ?></p>
+    <p>Nombre: <?= $estadisticas['masCaro']['nombre'] ?></p> <!--   <p>Nombre: <= $masCaro['nombre'] ?> </p> -->
+    <p>Precio: <?= $estadisticas['masCaro']['precio'] ?></p>
    
 </body>
 </html>

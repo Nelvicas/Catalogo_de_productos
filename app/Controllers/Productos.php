@@ -16,6 +16,26 @@ class Productos extends BaseController
         $model = new ProductoModel();          // creas tu instancia 
         $productos = $model->getProductos();  // pides datos con get y los almacenas en productos
         //$cantidad = count($productos);       // creando variable para almacenar la cantidad
+
+        $estadisticas = $this->calcularEstadisticas($productos);
+
+
+        return view('productos',['productos' => $productos,'estadisticas' => $estadisticas]);
+        
+        /*
+        return view('productos', ['productos' => $productos, 'totalProductos' => $totalProductos, 
+        'productosDisponibles' => $productosDisponibles, 'productosAgotados' => $productosAgotados, 
+        'totalInvertido' => $totalInvertido, 'masCaro' => $masCaro]);
+        */
+
+    }
+
+    public function calcularEstadisticas($productos){
+        $totalProductos = 0;
+        $productosDisponibles = 0;
+        $productosAgotados = 0;
+        $totalInvertido = 0;
+
         $masCaro = $productos[0];             // variable mas Caro
         foreach ($productos as $producto){
             $totalProductos++;
@@ -33,18 +53,16 @@ class Productos extends BaseController
             }
         } 
 
-        return view('productos', ['productos' => $productos, 'totalProductos' => $totalProductos, 
-        'productosDisponibles' => $productosDisponibles, 'productosAgotados' => $productosAgotados, 
-        'totalInvertido' => $totalInvertido, 'masCaro' => $masCaro]);
 
+        $estadisticas = [ 
+                          "totalProductos" => $totalProductos, 
+                          "productosDisponibles" => $productosDisponibles, 
+                          "productosAgotados" => $productosAgotados, 
+                          "totalInvertido" => $totalInvertido, 
+                          "masCaro" => $masCaro 
+                        ];
 
-    }
-
-    public function calcularEstadisticas($productos){
-        $totalProductos = 0;
-        $productosDisponibles = 0;
-        $productosAgotados = 0;
-        $totalInvertido = 0;
+                return $estadisticas;
     }
 
 
