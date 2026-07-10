@@ -32,7 +32,8 @@
    
     <p>Valor total del inventario: <?= $totalInvertido ?></p>
 
-    <p>Producto mas caro: </p>
+    
+    <p>Producto mas caro: </p> <!-- visualizar producto mas caro  -->
     <p>Nombre: <?= $masCaro['nombre'] ?></p>
     <p>Precio: <?= $masCaro['precio'] ?></p>
    
