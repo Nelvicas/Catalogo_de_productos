@@ -12,9 +12,8 @@ class Productos extends BaseController
     {
         //return view('productos');
        
-
-        $model = new ProductoModel();          // creas tu instancia 
-        $productos = $model->getProductos();  // pides datos con get y los almacenas en productos
+        $productos = $this->obtenerProductos();
+        
         //$cantidad = count($productos);       // creando variable para almacenar la cantidad
 
         $estadisticas = $this->calcularEstadisticas($productos);
@@ -30,7 +29,14 @@ class Productos extends BaseController
 
     }
 
-    public function calcularEstadisticas($productos){
+    private function obtenerProductos(){
+
+        $model = new ProductoModel();          // creas tu instancia 
+        return $productos = $model->getProductos();  // pides datos con get y los almacenas en productos
+    }
+    
+
+    private function calcularEstadisticas($productos){
         $totalProductos = 0;
         $productosDisponibles = 0;
         $productosAgotados = 0;
