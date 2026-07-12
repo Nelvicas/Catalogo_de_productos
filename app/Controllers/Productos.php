@@ -10,17 +10,24 @@ class Productos extends BaseController
 {
     public function index()
     {
+
         //return view('productos');
-       
         $productos = $this->obtenerProductos();
         
         //$cantidad = count($productos);       // creando variable para almacenar la cantidad
+         // si productos esta vacio
+        $estadisticas = [];
+        $mensaje = "";
+        if(empty($productos)){
+            $sinProductos = true; 
+            $mensaje = "No hay productos disponibles";
+        }else{
+            $sinProductos = false;
+            $estadisticas = $this->calcularEstadisticas($productos);
+    
+        }
 
-        $estadisticas = $this->calcularEstadisticas($productos);
-
-
-        return view('productos',['productos' => $productos,'estadisticas' => $estadisticas]);
-        
+        return view('productos',['productos' => $productos,'estadisticas' => $estadisticas, 'sinProductos' => $sinProductos, 'mensaje' => $mensaje]);
         /*
         return view('productos', ['productos' => $productos, 'totalProductos' => $totalProductos, 
         'productosDisponibles' => $productosDisponibles, 'productosAgotados' => $productosAgotados, 
@@ -29,10 +36,11 @@ class Productos extends BaseController
 
     }
 
+
     private function obtenerProductos(){
 
-        $model = new ProductoModel();          // creas tu instancia 
-        return $productos = $model->getProductos();  // pides datos con get y los almacenas en productos
+        $model = new ProductoModel();                      // creas tu instancia 
+        return $productos = $model->getProductos();       // pides datos con get y los almacenas en productos
     }
     
 
@@ -42,7 +50,9 @@ class Productos extends BaseController
         $productosAgotados = 0;
         $totalInvertido = 0;
 
-        $masCaro = $productos[0];             // variable mas Caro
+         // mas caro 
+        $masCaro = $this->obtenerProductoMasCaro($productos);
+        
         foreach ($productos as $producto){
             $totalProductos++;
             $totalInvertido += ($producto['stock'] * $producto['precio']);
@@ -51,11 +61,6 @@ class Productos extends BaseController
                 $productosDisponibles++;
             }elseif($producto['stock'] == 0){
                 $productosAgotados++;
-            }
-
-            // mas caro 
-            if($producto['precio'] > $masCaro['precio']){
-                 $masCaro = $producto;
             }
         } 
 
@@ -69,6 +74,18 @@ class Productos extends BaseController
                         ];
 
                 return $estadisticas;
+    }
+
+    private function obtenerProductoMasCaro($productos){
+        $masCaro = $productos[0];             // variable mas Caro
+        foreach ($productos as $producto){
+            
+            if($producto['precio'] > $masCaro['precio']){
+                     $masCaro = $producto;
+                }
+        }
+
+        return $masCaro;
     }
 
 

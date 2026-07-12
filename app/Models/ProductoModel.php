@@ -59,37 +59,7 @@ class ProductoModel
     public function getProductos()
     {
        return  [ // uso de multiarreglos 
-     [  
-        "id" => 1,
-        "nombre" => "Laptop Lenovo",
-        "precio" => 5000,
-        "marca"  => "Lenovo",
-        "stock"  => 3,
-        ],
-
-     [
-        "id" => 2,
-        "nombre" => "Laptop Hp",
-        "precio" => 15000,
-        "marca"  => "HP",
-        "stock"  => 1,
-        ], 
-
-        [
-        "id" => 3,
-        "nombre" => "Impresora",
-        "precio" => 19000,
-        "marca"  => "HP",
-        "stock"  => 0,
-        ], 
-
-        [
-        "id" => 3,
-        "nombre" => "Teclado",
-        "precio" => 300,
-        "marca" => "Logitech",
-        "stock" => 5
-    ]
+     
 
 
      ];

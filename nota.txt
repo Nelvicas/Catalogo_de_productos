@@ -1,0 +1,7 @@
+Controller: coordina la petición. Piensa: «Llegó una solicitud para ver productos, ¿qué necesito hacer?».
+
+Model: obtiene y guarda datos. Piensa: «Voy a consultar productos».
+
+Service: aplica lógica de negocio. Piensa: «Voy a calcular estadísticas y encontrar el producto más caro».
+
+View: muestra información. Piensa: «Voy a mostrar el catálogo o el mensaje».
