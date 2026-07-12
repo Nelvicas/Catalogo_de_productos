@@ -8,6 +8,18 @@ use App\Models\ProductoModel;
 
 class Productos extends BaseController
 {
+
+    // propiedad model para ser accesible para cualquier metodos
+
+    private $model;
+
+    // constructor
+
+    public function __construct() {
+        $this->model = new ProductoModel();
+    }
+
+
     public function index()
     {
 
@@ -39,8 +51,10 @@ class Productos extends BaseController
 
     private function obtenerProductos(){
 
-        $model = new ProductoModel();                      // creas tu instancia 
-        return $productos = $model->getProductos();       // pides datos con get y los almacenas en productos
+        
+        return $this ->model->getProductos();
+        // $model = new ProductoModel();                      // creas tu instancia 
+        //return $productos = $model->getProductos();       // pides datos con get y los almacenas en productos
     }
     
 
