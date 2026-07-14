@@ -21,7 +21,7 @@
         <?php foreach ($productos as $producto): ?> <!-- traer datos de multiarreglo a la vista  -->
                 <p>id: <?= $producto["id"]; ?> </p>
                 <p>Nombre: <?= $producto["nombre"]; ?> </p>
-                <p>Precio: <?= $producto["precio"]; ?></p>
+                <p>Precio: <?= $producto["precioFormateado"]; ?></p>
                 <p>Marca: <?= $producto["marca"]; ?> </p>
                 <p>Stock: <?= $producto["stock"]; ?> </p>
 

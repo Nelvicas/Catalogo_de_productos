@@ -29,8 +29,6 @@ class Productos extends BaseController
 
         //return view('productos');
         $productos = $this->obtenerProductos();
-
-        $productosPreparados =  $productos;
         
         //$cantidad = count($productos);       // creando variable para almacenar la cantidad
          // si productos esta vacio
@@ -42,8 +40,9 @@ class Productos extends BaseController
         }else{
             $sinProductos = false;
             $estadisticas = $this->calcularEstadisticas($productos);
-    
+            $productos = $this->prepararProductosVista($productos);
         }
+
 
         return view('productos',['productos' => $productos,'estadisticas' => $estadisticas, 'sinProductos' => $sinProductos, 
         'mensaje' => $mensaje, 'nombreCatalogo' => $this->nombreCatalogo]);
