@@ -84,7 +84,7 @@ class ProductoModel
         ], 
 
         [
-        "id" => 3,
+        "id" => 4,
         "nombre" => "Teclado",
         "precio" => 300,
         "marca" => "Logitech",

@@ -12,11 +12,15 @@ class Productos extends BaseController
     // propiedad model para ser accesible para cualquier metodos
 
     private $model;
+    private $nombreCatalogo;
+    private $moneda;
 
     // constructor
 
     public function __construct() {
         $this->model = new ProductoModel();
+        $this->nombreCatalogo = "Catalogo de Productos";
+        $this->moneda = "MXN";
     }
 
 
@@ -25,6 +29,8 @@ class Productos extends BaseController
 
         //return view('productos');
         $productos = $this->obtenerProductos();
+
+        $productosPreparados =  $productos;
         
         //$cantidad = count($productos);       // creando variable para almacenar la cantidad
          // si productos esta vacio
@@ -39,7 +45,9 @@ class Productos extends BaseController
     
         }
 
-        return view('productos',['productos' => $productos,'estadisticas' => $estadisticas, 'sinProductos' => $sinProductos, 'mensaje' => $mensaje]);
+        return view('productos',['productos' => $productos,'estadisticas' => $estadisticas, 'sinProductos' => $sinProductos, 
+        'mensaje' => $mensaje, 'nombreCatalogo' => $this->nombreCatalogo]);
+        
         /*
         return view('productos', ['productos' => $productos, 'totalProductos' => $totalProductos, 
         'productosDisponibles' => $productosDisponibles, 'productosAgotados' => $productosAgotados, 
@@ -103,6 +111,22 @@ class Productos extends BaseController
     }
 
 
+    // formaterar modenda  (agregar MXN )
+    private function formatearMoneda($precio){
+        return $precio. " ".$this->moneda;
+    }
+
+
+    private function prepararProductosVista($productos){
+        $productosPreparados = [];
+        foreach ($productos as $producto){
+            $copiaProducto = $producto;
+            $copiaProducto['precioFormateado'] = $this->formatearMoneda($copiaProducto['precio']);
+            $productosPreparados[] = $copiaProducto;
+        }
+        return $productosPreparados;
+
+    }
 
  
 }

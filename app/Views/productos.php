@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <h1>Catálogo de Productos</h1>
+    <h1><?= $nombreCatalogo; ?></h1>
     <p>"Esta es mi primera vista en CodeIgniter."</p>
 
     <?php if($sinProductos == true):?>
