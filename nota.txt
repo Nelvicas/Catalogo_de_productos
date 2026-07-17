@@ -5,3 +5,59 @@ Model: obtiene y guarda datos. Piensa: «Voy a consultar productos».
 Service: aplica lógica de negocio. Piensa: «Voy a calcular estadísticas y encontrar el producto más caro».
 
 View: muestra información. Piensa: «Voy a mostrar el catálogo o el mensaje».
+
+
+
+
+Nuestro plan actualizado
+
+Quedaría así:
+
+Etapa 1
+
+✅ Dominar PHP, OOP y CodeIgniter con el catálogo.
+
+Etapa 2
+
+✅ Convertir el catálogo en una aplicación completa (CRUD, autenticación, base de datos).
+
+Etapa 3
+
+✅ Aprender Linux y administración básica de servidores.
+
+Etapa 4
+
+✅ Desplegar la aplicación en un servidor remoto.
+
+Etapa 5
+
+✅ Automatizar el despliegue con Git y GitHub Actions.
+
+Etapa 6
+
+✅ Docker, Nginx, SSL, monitoreo y buenas prácticas de DevOps.
+
+Creo que ese recorrido tiene mucho sentido porque cada etapa se apoya en la anterior. 
+No aprenderás DevOps "en el aire": lo aplicarás sobre una aplicación que tú mismo construiste, 
+y eso hace que cada herramienta tenga un propósito claro.
+
+
+
+
+
+| Tema                                          | Definición clara                                                                                                                              |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Programación Orientada a Objetos (OOP)**    | Paradigma que organiza el código en clases y objetos para hacerlo reutilizable, mantenible y fácil de entender.                               |
+| **Clase**                                     | Es una **plantilla** que define cómo serán los objetos. Contiene propiedades y métodos.                                                       |
+| **Objeto**                                    | Es una entidad creada a partir de una clase. Tiene sus propios valores y puede ejecutar los métodos definidos por la clase.                   |
+| **Instancia**                                 | Es el objeto que resulta de crear una clase usando `new`. En la práctica, objeto e instancia suelen usarse como sinónimos.                    |
+| **Propiedad**                                 | Es una variable que pertenece a la clase (o al objeto) y almacena información. Responde a la pregunta **¿Qué tiene?**                         |
+| **Método**                                    | Es una función que pertenece a una clase y define una acción. Responde a la pregunta **¿Qué puede hacer?**                                    |
+| **Responsabilidad**                           | Es la tarea principal que debe cumplir una clase. Una buena clase tiene una responsabilidad clara y específica.                               |
+| **`new`**                                     | Operador que crea un objeto (instancia) a partir de una clase.                                                                                |
+| **`$this`**                                   | Hace referencia al **objeto actual**. Permite acceder a sus propiedades y métodos.                                                            |
+| **Constructor (`__construct`)**               | Método especial que se ejecuta automáticamente cuando se crea un objeto con `new`. Se utiliza para inicializar el objeto.                     |
+| **Variable local**                            | Variable que existe únicamente dentro del método donde fue declarada.                                                                         |
+| **Propiedad de la clase**                     | Variable declarada fuera de los métodos. Puede ser utilizada por todos los métodos mediante `$this`.                                          |
+| **Reutilización**                             | Escribir una vez una lógica y usarla muchas veces sin duplicar código.                                                                        |
+| **Encapsulamiento (lo veremos más adelante)** | Consiste en proteger los datos de una clase y controlar cómo se accede a ellos mediante modificadores como `private`, `protected` y `public`. |
