@@ -70,3 +70,19 @@ y eso hace que cada herramienta tenga un propósito claro.
 El Controller coordina.
 El Model obtiene y manipula datos.
 El Service contiene la lógica del negocio.
+
+
+El namespace le dice a PHP dónde vive una clase.
+
+
+
+Solo crear un constructor cuando la clase realmente necesita preparar algo.
+
+Por ejemplo:
+
+recibir un Model,
+recibir una conexión a la base de datos,
+recibir una configuración,
+recibir otro Service.
+
+Si no hay nada que preparar, no se crea.

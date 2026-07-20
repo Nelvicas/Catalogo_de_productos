@@ -2,9 +2,12 @@
 
 namespace App\Controllers;
 
+
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\ProductoModel;
+use App\Services\ProductoService;
+
 
 class Productos extends BaseController
 {
@@ -12,6 +15,7 @@ class Productos extends BaseController
     // propiedad model para ser accesible para cualquier metodos
 
     private $model;
+    private $productoService;
     private $nombreCatalogo;
     private $moneda;
 
@@ -19,6 +23,7 @@ class Productos extends BaseController
 
     public function __construct() {
         $this->model = new ProductoModel();
+        $this->productoService = new ProductoService();
         $this->nombreCatalogo = "Catalogo de Productos";
         $this->moneda = "MXN";
     }
@@ -39,7 +44,7 @@ class Productos extends BaseController
             $mensaje = "No hay productos disponibles";
         }else{
             $sinProductos = false;
-            $estadisticas = $this->calcularEstadisticas($productos);
+            $estadisticas = $this->productoService->calcularEstadisticas($productos);
             $productos = $this->prepararProductosVista($productos);
         }
 
@@ -64,51 +69,6 @@ class Productos extends BaseController
         //return $productos = $model->getProductos();       // pides datos con get y los almacenas en productos
     }
         */
-    
-
-    private function calcularEstadisticas($productos){
-        $totalProductos = 0;
-        $productosDisponibles = 0;
-        $productosAgotados = 0;
-        $totalInvertido = 0;
-
-         // mas caro 
-        $masCaro = $this->obtenerProductoMasCaro($productos);
-        
-        foreach ($productos as $producto){
-            $totalProductos++;
-            $totalInvertido += ($producto['stock'] * $producto['precio']);
-
-            if($producto['stock'] > 0){
-                $productosDisponibles++;
-            }elseif($producto['stock'] == 0){
-                $productosAgotados++;
-            }
-        } 
-
-
-        $estadisticas = [ 
-                          "totalProductos" => $totalProductos, 
-                          "productosDisponibles" => $productosDisponibles, 
-                          "productosAgotados" => $productosAgotados, 
-                          "totalInvertido" => $totalInvertido, 
-                          "masCaro" => $masCaro 
-                        ];
-
-                return $estadisticas;
-    }
-
-    private function obtenerProductoMasCaro($productos){
-        $masCaro = $productos[0];             // variable mas Caro
-        foreach ($productos as $producto){
-            
-            if($producto['precio'] > $masCaro['precio']){
-                     $masCaro = $producto;
-                }
-        }
-
-        return $masCaro;
-    }
 
 
     // formaterar modenda  (agregar MXN )
