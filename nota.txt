@@ -57,8 +57,16 @@ y eso hace que cada herramienta tenga un propósito claro.
 | **`new`**                                     | Operador que crea un objeto (instancia) a partir de una clase.                                                                                |
 | **`$this`**                                   | Hace referencia al **objeto actual**. Permite acceder a sus propiedades y métodos.                                                            |
 | **Constructor (`__construct`)**               | Método especial que se ejecuta automáticamente cuando se crea un objeto con `new`. Se utiliza para inicializar el objeto.                     |
-| (cuando los métodos se ejecuten, el objeto ya tenga todo lo que necesita.)                                                                                                                    |
+|                                                 (cuando los métodos se ejecuten, el objeto ya tenga todo lo que necesita.)                                                                    |
 | **Variable local**                            | Variable que existe únicamente dentro del método donde fue declarada.                                                                         |
 | **Propiedad de la clase**                     | Variable declarada fuera de los métodos. Puede ser utilizada por todos los métodos mediante `$this`.                                          |
 | **Reutilización**                             | Escribir una vez una lógica y usarla muchas veces sin duplicar código.                                                                        |
 | **Encapsulamiento (lo veremos más adelante)** | Consiste en proteger los datos de una clase y controlar cómo se accede a ellos mediante modificadores como `private`, `protected` y `public`. |
+
+
+
+
+
+El Controller coordina.
+El Model obtiene y manipula datos.
+El Service contiene la lógica del negocio.
