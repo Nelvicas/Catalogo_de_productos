@@ -49,7 +49,7 @@ class Productos extends BaseController
         }
 
 
-        return view('productos',['productos' => $productos,'estadisticas' => $estadisticas, 'sinProductos' => $sinProductos, 
+        return view('productos/index',['productos' => $productos,'estadisticas' => $estadisticas, 'sinProductos' => $sinProductos, 
         'mensaje' => $mensaje, 'nombreCatalogo' => $this->nombreCatalogo]);
         
         /*
