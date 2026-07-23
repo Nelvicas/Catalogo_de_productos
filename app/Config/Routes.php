@@ -6,3 +6,4 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 
 $routes->get('/productos', 'Productos::index');
+$routes->get('/productos/(:num)', 'Productos::detalleProducto/$1');

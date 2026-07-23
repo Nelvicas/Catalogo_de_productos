@@ -94,4 +94,16 @@ class ProductoModel
 
      ];
     }
+
+     // funcion para obtener id producto
+    public function obtenerProductoPorId($id){
+        $productos = $this->getProductos();
+
+        foreach ($productos as $producto){
+            if($producto['id']== $id){
+            return $producto;
+          }
+        }
+     return null;
+    }
 }

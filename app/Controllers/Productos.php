@@ -71,10 +71,12 @@ class Productos extends BaseController
         */
 
 
+
     // formaterar modenda  (agregar MXN )
     private function formatearMoneda($precio){
         return $precio. " ".$this->moneda;
     }
+
 
 
     private function prepararProductosVista($productos){
@@ -86,6 +88,20 @@ class Productos extends BaseController
         }
         return $productosPreparados;
 
+    }
+
+
+    // detalles del producto
+
+    public function detalleProducto($id){
+        $productoEncontrado = $this->model->obtenerProductoPorId($id);
+        //var_dump($productoEncontrado); prueba
+        //exit;
+        if($productoEncontrado != null){
+            return view('productos/detalles', ['producto' => $productoEncontrado]);
+        }else{
+            echo "producto no encontrado";
+        }
     }
 
  
