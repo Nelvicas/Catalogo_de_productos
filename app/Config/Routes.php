@@ -7,3 +7,6 @@ $routes->get('/', 'Home::index');
 
 $routes->get('/productos', 'Productos::index');
 $routes->get('/productos/(:num)', 'Productos::detalleProducto/$1');
+$routes->get('/productos/agregarProducto', 'Productos::agregarProducto');
+
+$routes->get('/prueba-conexion', 'Productos::pruebaConexion');

@@ -104,5 +104,27 @@ class Productos extends BaseController
         }
     }
 
+    public function agregarProducto()
+    {
+        return view('productos/agregarProducto');
+    }
+
+
+    public function guardarProducto(){
+
+    }
+
+    public function pruebaConexion()
+    {
+        $db = \Config\Database::connect();
+
+        $query = $db->query("SELECT * FROM productos");
+
+        $resultado = $query->getResultArray();
+
+        echo "<pre>";
+        print_r($resultado);
+        echo "</pre>";
+    }
  
 }

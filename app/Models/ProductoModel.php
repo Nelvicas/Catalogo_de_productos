@@ -106,4 +106,9 @@ class ProductoModel
         }
      return null;
     }
+
+
+    public function crearProducto(){
+        
+    }
 }
