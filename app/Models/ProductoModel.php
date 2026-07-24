@@ -1,6 +1,6 @@
 <?php
 
-/*namespace App\Models;
+namespace App\Models;
 
 use CodeIgniter\Model;
 
@@ -12,7 +12,10 @@ class ProductoModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = [ 'nombre',
+                                    'precio',
+                                    'marca',
+                                    'stock'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -46,12 +49,12 @@ class ProductoModel extends Model
 
 
     public function getProductos(){
-        return ["Laptop Lenovo" => 18000,
-                "Monitor Samsung" => 5000,
-                "Mouse Logitech" => 450    ];
+        return $this->findAll();
     }
-}*/
+}
 
+
+/*  para arreglos 
 namespace App\Models;
 
 class ProductoModel
@@ -112,3 +115,5 @@ class ProductoModel
         
     }
 }
+
+*/
