@@ -1,3 +1,3 @@
-<?= $producto['nombre']; ?>
-<?= $producto['precio']; ?>
-<?= $producto['marca']; ?>
+<?= $producto['nombre']; ?><br>
+<?= $producto['precio']; ?><br>
+<?= $producto['marca']; ?><br>

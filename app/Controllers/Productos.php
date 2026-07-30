@@ -114,6 +114,7 @@ class Productos extends BaseController
 
     }
 
+    /*
     public function pruebaConexion()
     {
         $db = \Config\Database::connect();
@@ -125,6 +126,6 @@ class Productos extends BaseController
         echo "<pre>";
         print_r($resultado);
         echo "</pre>";
-    }
+    }*/
  
 }

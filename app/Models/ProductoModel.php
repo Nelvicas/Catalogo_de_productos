@@ -51,6 +51,18 @@ class ProductoModel extends Model
     public function getProductos(){
         return $this->findAll();
     }
+
+
+     // funcion para obtener id producto
+    public function obtenerProductoPorId($id){
+            return $this->find($id);
+    }
+
+
+    public function crearProducto(){
+        
+    }
+
 }
 
 
