@@ -111,7 +111,11 @@ class Productos extends BaseController
 
 
     public function guardarProducto(){
-
+       
+        $nombre = $this->request->getPost('nombre');
+        $precio = $this->request->getPost('precio');
+        $marca = $this->request->getPost('marca');
+        $stock = $this->request->getPost('stock');
     }
 
     /*
