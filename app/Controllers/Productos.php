@@ -116,6 +116,17 @@ class Productos extends BaseController
         $precio = $this->request->getPost('precio');
         $marca = $this->request->getPost('marca');
         $stock = $this->request->getPost('stock');
+
+        if((empty($nombre) || empty($precio) || empty($marca) || empty($stock))){
+            return;
+        }
+
+        $productoCreado = [
+            'nombre' => $nombre,
+            'precio' => $precio,
+            'marca' => $marca,
+            'stock' => $stock
+        ];
     }
 
     /*
