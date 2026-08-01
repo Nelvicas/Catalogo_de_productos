@@ -127,7 +127,19 @@ class Productos extends BaseController
             'marca' => $marca,
             'stock' => $stock
         ];
-    }
+
+        $resultado = $this->model->crearProducto($productoCreado);
+
+        if ($resultado) {
+
+            return redirect()->to('/productos');
+
+        } else {
+
+            echo(" error");
+
+        }
+            }
 
     /*
     public function pruebaConexion()

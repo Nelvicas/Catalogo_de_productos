@@ -59,8 +59,8 @@ class ProductoModel extends Model
     }
 
 
-    public function crearProducto(){
-        
+    public function crearProducto($producto){
+        return $this->insert($producto);
     }
 
 }
