@@ -101,3 +101,14 @@ empty($nombre) responde: “¿La variable está vacía?”
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
+
+ejemplo se insert de datos
+
+$resultado = $this->model->crearProducto($productoCreado);
+
+es un patrón que verás constantemente en aplicaciones empresariales.
+
+El controlador prepara los datos y el modelo persiste los datos.
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
