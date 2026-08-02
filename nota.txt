@@ -112,3 +112,34 @@ El controlador prepara los datos y el modelo persiste los datos.
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+La estructura general
+
+Piensa que un workflow tiene 5 partes principales.
+
+Sección                                           Qué hace
+
+name                                            Nombre del workflow
+
+on                                              Cuándo se ejecuta
+
+jobs                                            Qué trabajos realizará
+
+steps                                           Qué pasos ejecutará
+
+script                                          Qué comandos correrán en el servidor
