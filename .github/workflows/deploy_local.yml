@@ -41,6 +41,5 @@ jobs:
       cd /var/www/Catalogo_de_productos
       git fetch origin
       git reset --hard origin/main
-      composer install --no-interaction --prefer-dist
+      composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
       php spark cache:clear
-      php spark optimize
