@@ -141,6 +141,18 @@ class Productos extends BaseController
         }
             }
 
+
+
+        public function editarProducto($id){
+            $productoExistente = $this -> model->obtenerProductoPorId($id);
+
+            if($productoExistente){
+
+            }else{
+
+            }
+        }
+
     /*
     public function pruebaConexion()
     {
