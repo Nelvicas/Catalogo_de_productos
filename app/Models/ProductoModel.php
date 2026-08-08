@@ -63,6 +63,10 @@ class ProductoModel extends Model
         return $this->insert($producto);
     }
 
+    public function actualizarProducto($id, $productoActualizado){
+        return $this->update($id, $productoActualizado);
+    }
+
 }
 
 

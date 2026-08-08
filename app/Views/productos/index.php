@@ -24,6 +24,7 @@
                 <p>Precio: <?= $producto["precioFormateado"]; ?></p>
                 <p>Marca: <?= $producto["marca"]; ?> </p>
                 <p>Stock: <?= $producto["stock"]; ?> </p>
+                <a href="/productos/editarProducto/<?php echo $producto['id']; ?>">Editar</a>
 
                 <?php if ($producto["stock"] > 0): ?>    <!-- uso de if para ver si esta disponible o agotado solo en vista -->
                     <p>Disponible</p>
