@@ -9,7 +9,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Formulario</title>
+    <title>Formulario Agregar Producto</title>
 </head>
 <body>
     

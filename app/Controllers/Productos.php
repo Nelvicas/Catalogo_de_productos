@@ -139,7 +139,52 @@ class Productos extends BaseController
             echo(" error");
 
         }
+     }
+
+
+
+        public function editarProducto($id){
+            $productoExistente = $this -> model->obtenerProductoPorId($id);
+
+            if($productoExistente){
+                return view('productos/editarProducto',['producto' => $productoExistente] );
+            }else{
+                echo " Producto no encontrado no existe ";
             }
+        }
+
+        public function actualizarProducto(){
+
+            $id = $this->request->getPost('id');
+            $nombre = $this->request->getPost('nombre');
+            $precio = $this->request->getPost('precio');
+            $marca = $this->request->getPost('marca');
+            $stock = $this->request->getPost('stock');
+
+            if((empty($nombre) || empty($precio) || empty($marca) || empty($stock))){
+            return;
+        }
+
+        $productoActualizado = [
+            'nombre' => $nombre,
+            'precio' => $precio,
+            'marca' => $marca,
+            'stock' => $stock
+        ];
+
+        $resultado = $this->model->actualizarProducto($id, $productoActualizado);
+
+        if ($resultado) {
+
+            return redirect()->to('/productos');
+
+        } else {
+
+            echo(" error");
+
+        }
+
+        }
 
     /*
     public function pruebaConexion()
