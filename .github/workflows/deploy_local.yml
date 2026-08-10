@@ -1,45 +1,58 @@
-##name: Test SSH Connection
-
-#on:
- #workflow_dispatch:
-
-#jobs:
- #test-ssh:
-  #runs-on: self-hosted
-
-  #steps:
-  #- name: Show server information
-    #run: |
-      #echo "Runner ejecutándose en el servidor"
-      #hostname 
-      #whoami
-      #pwd 
-      #php -v 
-      #nginx -v
-
-
-
-
-name: Deploy to local server
+name: Deploy local
 
 on:
- pull_request:
-  branches:
-  - main
-  types:
-  - closed
+  pull_request:
+    types: [closed]
 
 jobs:
- deploy:
-  if: github.event.pull_request.merged == true
-  runs-on: self-hosted
+  deploy:
+    if: github.event.pull_request.merged == true
+    runs-on: self-hosted
 
+    steps:
+      - name: Deploy application
+        run: |
+          cd /var/www/Catalogo_de_productos
 
-  steps:
-  - name: Deploy application
-    run: |
-      cd /var/www/Catalogo_de_productos
-      git fetch origin
-      git reset --hard origin/main
-      composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
-      php spark cache:clear
+          echo "===== USUARIO ====="
+          whoami
+          id
+
+          echo "===== RUTA ====="
+          pwd
+
+          echo "===== PERMISOS writable ====="
+          ls -ld writable
+          ls -ld writable/cache
+          ls -la writable/cache
+
+          echo "===== GIT ====="
+          git fetch origin
+          git reset --hard origin/main
+
+          echo "===== DESPUES DE GIT ====="
+          ls -ld writable
+          ls -ld writable/cache
+          ls -la writable/cache
+
+          echo "===== COMPOSER ====="
+          composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+
+          echo "===== DESPUES DE COMPOSER ====="
+          ls -ld writable
+          ls -ld writable/cache
+          ls -la writable/cache
+
+          echo "LLEGUE DESPUES DE COMPOSER"
+          php -r "var_dump(is_writable('writable/cache'));"
+          php spark cache:clear
+
+          echo "===== PRUEBA ESCRITURA ====="
+          touch writable/cache/runner-test.txt
+          ls -la writable/cache/runner-test.txt
+          rm writable/cache/runner-test.txt
+
+          echo "===== CODEIGNITER CACHE ====="
+          php spark cache:clear
+
+          echo "===== FIN ====="
