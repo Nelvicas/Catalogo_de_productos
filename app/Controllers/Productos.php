@@ -186,6 +186,17 @@ class Productos extends BaseController
 
         }
 
+
+        public function eliminarProducto($id){
+            $productoExistente = $this -> model->obtenerProductoPorId($id);
+
+             if($productoExistente){
+                $this->model->eliminarProducto($id);
+            }else{
+                echo " Producto no encontrado no existe ";
+            }
+        }
+
     /*
     public function pruebaConexion()
     {

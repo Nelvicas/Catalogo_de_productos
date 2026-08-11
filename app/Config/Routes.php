@@ -11,6 +11,7 @@ $routes->get('/productos/agregarProducto', 'Productos::agregarProducto');
 $routes->post('/productos/guardarProducto', 'Productos::guardarProducto');
 $routes->get('/productos/editarProducto/(:num)', 'Productos::editarProducto/$1');
 $routes->post('/productos/actualizarProducto', 'Productos::actualizarProducto');
+$routes->post('/productos/eliminarProducto/(:num)', 'Productos::eliminarProducto/$1');
 
 
 // prueba conexion db 

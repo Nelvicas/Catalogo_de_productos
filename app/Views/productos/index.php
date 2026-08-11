@@ -25,6 +25,10 @@
                 <p>Marca: <?= $producto["marca"]; ?> </p>
                 <p>Stock: <?= $producto["stock"]; ?> </p>
                 <a href="/productos/editarProducto/<?php echo $producto['id']; ?>">Editar</a>
+                <form action="" method="post">
+                    <button type="submit">Eliminar</button>
+                </form>
+
 
                 <?php if ($producto["stock"] > 0): ?>    <!-- uso de if para ver si esta disponible o agotado solo en vista -->
                     <p>Disponible</p>
