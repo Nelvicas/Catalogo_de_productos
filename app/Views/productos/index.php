@@ -25,8 +25,8 @@
                 <p>Marca: <?= $producto["marca"]; ?> </p>
                 <p>Stock: <?= $producto["stock"]; ?> </p>
                 <a href="/productos/editarProducto/<?php echo $producto['id']; ?>">Editar</a>
-                <form action="" method="post">
-                    <button type="submit">Eliminar</button>
+                <form  onsubmit="return confirm('¿Estás seguro de que deseas eliminar este producto?' )" action="/productos/eliminarProducto/<?php echo $producto['id']; ?>" method="post">                     
+                    <button type="submit">Eliminar</button>                 
                 </form>
 
 

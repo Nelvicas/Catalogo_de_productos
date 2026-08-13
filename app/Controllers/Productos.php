@@ -191,7 +191,12 @@ class Productos extends BaseController
             $productoExistente = $this -> model->obtenerProductoPorId($id);
 
              if($productoExistente){
-                $this->model->eliminarProducto($id);
+               $resultado = $this->model->eliminarProducto($id);
+                if($resultado){
+                     return redirect()->to('/productos');
+                }else{
+                    echo("error");
+                }
             }else{
                 echo " Producto no encontrado no existe ";
             }
