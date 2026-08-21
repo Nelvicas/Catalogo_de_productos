@@ -193,6 +193,7 @@ class Productos extends BaseController
              if($productoExistente){
                $resultado = $this->model->eliminarProducto($id);
                 if($resultado){
+                     session()->setFlashdata('mensaje', 'Producto eliminado correctamente');
                      return redirect()->to('/productos');
                 }else{
                     echo("error");

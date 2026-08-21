@@ -10,6 +10,11 @@
     <h1><?= $nombreCatalogo; ?></h1>
     <p>"Esta es mi primera vista en CodeIgniter."</p>
 
+    <?php if (session()->getFlashdata('mensaje')): ?>
+        <p><?= session()->getFlashdata('mensaje'); ?></p>
+    <?php endif; ?>
+
+
     <?php if($sinProductos == true):?>
         <p><h1><?= $mensaje; ?></h1></p>
      <?php else: ?>
