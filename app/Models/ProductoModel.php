@@ -67,6 +67,10 @@ class ProductoModel extends Model
         return $this->update($id, $productoActualizado);
     }
 
+    public function eliminarProducto($id){
+        return $this->delete($id);
+    }
+
 }
 
 

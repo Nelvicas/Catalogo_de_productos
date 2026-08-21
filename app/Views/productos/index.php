@@ -10,6 +10,11 @@
     <h1><?= $nombreCatalogo; ?></h1>
     <p>"Esta es mi primera vista en CodeIgniter."</p>
 
+    <?php if (session()->getFlashdata('mensaje')): ?>
+        <p><?= session()->getFlashdata('mensaje'); ?></p>
+    <?php endif; ?>
+
+
     <?php if($sinProductos == true):?>
         <p><h1><?= $mensaje; ?></h1></p>
      <?php else: ?>
@@ -25,6 +30,10 @@
                 <p>Marca: <?= $producto["marca"]; ?> </p>
                 <p>Stock: <?= $producto["stock"]; ?> </p>
                 <a href="/productos/editarProducto/<?php echo $producto['id']; ?>">Editar</a>
+                <form  onsubmit="return confirm('¿Estás seguro de que deseas eliminar este producto?' )" action="/productos/eliminarProducto/<?php echo $producto['id']; ?>" method="post">                     
+                    <button type="submit">Eliminar</button>                 
+                </form>
+
 
                 <?php if ($producto["stock"] > 0): ?>    <!-- uso de if para ver si esta disponible o agotado solo en vista -->
                     <p>Disponible</p>
